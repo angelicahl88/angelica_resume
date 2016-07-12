@@ -1,0 +1,197 @@
+p, h1, h2, h3, h4, h5, h6 {
+    color: $black;
+    font-family: $book;
+    line-height: 1.5;
+    margin: 7px 0;
+    &.upper {
+        text-transform: uppercase;
+    }
+    &.light {
+        font-family: $light;
+    }
+    &.lightOblique {
+        font-family: $lightOblique;
+    }
+    &.medium {
+        font-family: $medium;
+    }
+    &.bold {
+        font-family: $bold;
+    }
+    &.heavy {
+        font-family: $heavy;
+    }
+}
+
+p {
+    font-size: $baseSize;
+}
+
+h1 {
+    font-size: $baseSize * 2;
+}
+
+h2 {
+    font-size: $baseSize * 1.8;
+}
+
+h3 {
+    font-size: $baseSize * 1.6;
+}
+
+h4 {
+    font-size: $baseSize * 1.4;
+}
+
+h5 {
+    font-size: $baseSize * 1.2;
+}
+
+h6 {
+    font-size: $baseSize;
+}
+
+span.lower {
+    text-transform: none;
+}
+
+header {
+    width: 100%;
+    background: $blue;
+    height: 500px;
+    display: table;
+    & > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        & > h4, h1 {
+        color: $white;
+    }
+    } 
+}
+
+.container {
+    width: 100%;
+    margin: 72px auto;
+    position: relative;
+    @media screen and (min-width: 768px) and (max-width: 1200px) {
+        display: table;
+        width: 80%;
+        padding: 0;
+    }
+    @media screen and (min-width: 1200px) {
+        display: table;
+        width: 1024px;
+        padding: 0;
+    }
+    & > .left {
+        padding: 14px;
+        @media screen and (min-width: 768px) {
+            display: table-cell;
+            left: 5%;
+            width: 35%;
+            padding: 28px 0;
+        }
+        &.center {
+            text-align: center;
+        }
+        &.visualisation {
+            padding: 14px 0 28px 14px;
+            @media screen and (min-width: 768px) {
+                padding: 14px 0 28px 0;
+            }
+        }
+    }
+    & > .right {
+        padding: 14px 14px 14px 58px;
+        & > .item {
+            margin: 28px 0;
+        }
+        &.center {
+            padding: 14px;
+            text-align: center;
+            & > h5 {
+                text-align: left;
+            }
+        }
+        &.visualisation {
+            vertical-align: top;
+            text-align: center;
+            padding: 14px;
+            & > div {
+                border: 2px dotted rgba($black, 0.05);
+            }
+            & > p, h5 {
+                text-align: left;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            display: table-cell;
+            right: 5%;
+            width: 55%;
+            padding: 28px 0;
+        }
+    }
+}
+
+
+
+div.gitWrapper {
+    vertical-align: top;
+    & div.gitHub {
+        background: url(../media/github.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 120px;
+        height: 120px;
+        margin: 112px auto 14px auto;
+        vertical-align: bottom;
+    }
+}
+
+
+ul {
+    text-align: left;
+    & > li {
+        margin: 28px 0;
+        & > p {
+            font-family: $bold;
+            font-size: 12px;
+            line-height: 1.2;
+            display: table-cell;
+            width: 80px;
+            border-top: 1px dotted $black;
+            border-right: 1px dotted $black;
+            @media screen and (min-width: 700px) {
+                width: 100px;
+            }
+        }
+        & > div {
+            left: 94px;
+            display: table-cell;
+            @media screen and (min-width: 700px) {
+                left: 114px;
+            }
+        }
+    }    
+}
+
+.inner {
+    fill: $blue;
+}
+
+.outer {
+    fill: none;
+}
+
+text, tspan {
+    fill: $white;
+    font-family: $book;
+    font-size: 12px;
+    &#textPercent {
+        font-family: $heavy;
+        font-size: $baseSize;
+    }
+}
+
