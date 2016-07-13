@@ -216,28 +216,35 @@ $(document).ready(function() {
         
         
         //update vis SVG's height and width
-        sankeySVG.attr({width: width, height: sankeyH});
-        //langSVG.attr({width: width});
+        sankeySVG
+            .attr({width: width, height: sankeyH});
         
+        //update sankey width
+        sankey
+            .size([width, sankeyH]);
         
-        sankey.size([width, sankeyH]);
-        d3.selectAll(".link").attr({d: sankeyPath});
-        
+        //reset sankey
         sankey
             .nodes(sankeyGraph.nodes)
             .links(sankeyGraph.links)
             .layout(32);
         
+        //Update node positioning
         node
             .attr("transform", function(d) { 
                 return "translate(" + d.x + "," + d.y + ")"; 
             });
-            
-        d3.selectAll('rect').attr("height", function(d) { return d.dy; });
         
+        //Update rect height
+        d3.selectAll('rect')
+            .attr("height", function(d) { return d.dy; 
+            });
+        
+        //update links
         link
             .attr("d", sankeyPath);
         
+        //update text positioning
         d3.selectAll('text')
             .attr({
                 y: function(d) {
