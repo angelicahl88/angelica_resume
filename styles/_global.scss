@@ -1,22 +1,25 @@
 p, h1, h2, h3, h4, h5, h6 {
     color: $black;
-    font-family: $book;
+    font-family: $courier;
     line-height: 1.5;
     margin: 7px 0;
     &.upper {
         text-transform: uppercase;
     }
-    &.light {
-        font-family: $light;
+    &.cReg {
+        font-family: $courier;
     }
-    &.lightOblique {
-        font-family: $lightOblique;
+    &.cItal {
+        font-family: $courierI;
+    }
+    &.cBold {
+        font-family: $courierB;
     }
     &.medium {
         font-family: $medium;
     }
     &.bold {
-        font-family: $bold;
+        font-family: $courierB;
     }
     &.heavy {
         font-family: $heavy;
@@ -55,25 +58,76 @@ span.lower {
     text-transform: none;
 }
 
+span.underline{
+    border-bottom: 2px dotted darken($lGray, 5%);
+    display: inline-block;
+    height: 16px;
+}
+
 header {
     width: 100%;
-    background: $blue;
+    background: $mGreen;
     height: 500px;
     display: table;
     & > div {
         display: table-cell;
         vertical-align: middle;
-        text-align: center;
-        & > h4, h1 {
-        color: $white;
-    }
+        //text-align: center;
+        & > h1 {
+            color: $white;
+            width: 330px;
+            //margin: 0 auto;
+            white-space: nowrap;
+            overflow: hidden;
+            letter-spacing: 1.2px;
+            animation: type 3s steps(30, end); 
+        }
+        & > h4 {
+            color: $blue;
+            width: 75px;
+            //margin: 0 auto;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: type2 8s steps(7, end);
+        }
     } 
+}
+
+@keyframes type{ 
+  from { width: 0; } 
+} 
+
+@keyframes type2{
+  0%{width: 0;}
+  70%{width: 0;}
+  100%{ width: 100; } 
+} 
+
+a {
+    text-decoration: none;
+    & > p.cred, p.git {
+        color: rgba($mGreen, 0.4);
+        border-bottom: 7px double rgba($mGreen, 0.4);
+        width: 160px;
+        transition: all .3s ease-in-out;
+        &:hover {
+            transition: all .3s ease-in-out;
+            color: rgba($mGreen, 0.8);
+            border-bottom-color: rgba($mGreen, 0.8);
+            cursor: pointer;
+        }    
+    }
+    & p.git {
+        width: 220px;
+        margin: 28px auto;
+    }
 }
 
 .container {
     width: 100%;
     margin: 72px auto;
     position: relative;
+    @include bgColor($dBlue, $mBlue, $dGreen, $mGreen, $tan, $lTan);
     @media screen and (min-width: 768px) and (max-width: 1200px) {
         display: table;
         width: 80%;
@@ -98,7 +152,7 @@ header {
         &.visualisation {
             padding: 14px 0 28px 14px;
             @media screen and (min-width: 768px) {
-                padding: 14px 0 28px 0;
+                padding: 28px 0;
             }
         }
     }
@@ -113,17 +167,23 @@ header {
             & > h5 {
                 text-align: left;
             }
+            @media screen and (min-width: 768px) {
+                padding: 28px 0;
+            }
         }
         &.visualisation {
             vertical-align: top;
             text-align: center;
             padding: 14px;
-            & > div {
-                border: 2px dotted rgba($black, 0.05);
-            }
             & > p, h5 {
                 text-align: left;
             }
+            & > p {
+                padding-top: 42px;
+            }
+            @media screen and (min-width: 768px) {
+            padding: 28px 0;
+        }
         }
         @media screen and (min-width: 768px) {
             display: table-cell;
@@ -155,30 +215,33 @@ ul {
     text-align: left;
     & > li {
         margin: 28px 0;
+        border-top: 2px dotted $lGray;
+        padding-top: 14px;
         & > p {
-            font-family: $bold;
+            font-family: $courier;
             font-size: 12px;
             line-height: 1.2;
             display: table-cell;
             width: 80px;
-            border-top: 1px dotted $black;
-            border-right: 1px dotted $black;
+            color: $dGreen;
+            &::before {
+                content: '(';
+            }
+            &::after {
+                content: ')';
+            }
             @media screen and (min-width: 700px) {
-                width: 100px;
+                width: 140px;
             }
         }
         & > div {
-            left: 94px;
             display: table-cell;
-            @media screen and (min-width: 700px) {
-                left: 114px;
-            }
         }
     }    
 }
 
 .inner {
-    fill: $blue;
+    fill: $lGray;
 }
 
 .outer {
@@ -186,12 +249,38 @@ ul {
 }
 
 text, tspan {
-    fill: $white;
-    font-family: $book;
-    font-size: 12px;
-    &#textPercent {
-        font-family: $heavy;
-        font-size: $baseSize;
+    fill: $mBlue;
+    font-family: $courier;
+    font-size: 11px;
+    pointer-events: none;
+    &.active {
+        font-family: $courierB;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+    }
+    @media screen and (min-width: 768px) {
+        font-size: 12px;
     }
 }
 
+.link {
+    fill: none;
+    stroke: $lGray;
+    stroke-opacity: 1;
+    transition: all 0.3s ease-in-out;
+    &.active {
+        transition: all 0.3s ease-in-out;
+        @include linkColor($red, $mGreen, $tan, $mBlue, $dGreen);
+        stroke-opacity: 0.4;
+    }
+    &.inactive {
+        stroke-opacity: 0.3;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+rect {
+    @include rectColor($red, $mGreen, $tan, $mBlue, $dGreen);
+    stroke-width: 3px;
+}
+ 
