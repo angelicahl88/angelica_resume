@@ -4,7 +4,7 @@
         {"node": 1, "name": "Geospatial"},
         {"node": 2, "name": "Design"},
         {"node": 3, "name": "Data Management"},
-        {"node": 4, "name": "Angular JS"},
+        {"node": 4, "name": "AngularJS"},
         {"node": 5, "name": "D3.js"},
         {"node": 6, "name": "Leaflet"},
         {"node": 7, "name": "CSS3"},

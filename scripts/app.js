@@ -1,17 +1,5 @@
 $(document).ready(function() {
     
-    //Colours
-    var $white = '#fff';
-    var $black = '#111';
-    var $blue = '#0f2228';
-    var $red = '#7a6364';
-    var $dBlue = '#132f3b';
-    var $mBlue = '#294a51';
-    var $dGreen = '#55605a';
-    var $mGreen = '#7a7863';
-    var $tan = '#a2846a';
-    var $lTan = '#c8a98c';
-    var $lGray = '#e9e9e9';
     
     //global variables
     var $vis = $('.right');
@@ -27,7 +15,7 @@ $(document).ready(function() {
     }
     
     
-    ////////////    SVG's setup      ////////////////
+    /****************    SVG's setup      ****************/
     //append SVG to #sankey
     var sankeySVG = d3.select('#sankey').append('svg')
         .attr({
@@ -42,7 +30,7 @@ $(document).ready(function() {
         });
     
     
-    /////////////   Sankey setup    ////////////////
+    /****************  Sankey setup    ****************/
     
     var sankeyGraph;
     var node;
@@ -77,7 +65,8 @@ $(document).ready(function() {
     };
     
     
-    ////////////    Sankey Skills   /////////////////
+    /****************   Draw Sankey   ****************/
+    
     //draw sankey
     function drawSankey() {
         
@@ -103,6 +92,7 @@ $(document).ready(function() {
             })
             .sort(function(a, b) { return b.dy - a.dy; });
         
+        
         // add in the nodes
         node = sankeySVG.append('g').selectAll(".node")
             .data(sankeyGraph.nodes)
@@ -114,6 +104,7 @@ $(document).ready(function() {
                 }
             });
         
+        //append rectangles to nodes
         rect = node.append("rect")
             .attr({
                 height: function(d) {
@@ -136,6 +127,8 @@ $(document).ready(function() {
                     return p.source !== d && p.target !== d; 
                 });
                 
+            
+                //text variables
                 var nodeId = 'textId' + d.node;
                 var sourceLength = d.sourceLinks.length;
                 var targetLength = d.targetLinks.length;
@@ -171,6 +164,7 @@ $(document).ready(function() {
             
             });
         
+        //Append text to node
         node
             .append("text")
             .attr({
@@ -198,10 +192,7 @@ $(document).ready(function() {
        
     }
         
-        
-    ////////////////////////////////////////
-    ///////     RESIZE FUNCTION     ////////
-    ////////////////////////////////////////
+    /****************    RESIZE FUNCTION     ****************/
     
     $(window).resize(function() {
         
