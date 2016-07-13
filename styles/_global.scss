@@ -3,26 +3,14 @@ p, h1, h2, h3, h4, h5, h6 {
     font-family: $courier;
     line-height: 1.5;
     margin: 7px 0;
-    &.upper {
-        text-transform: uppercase;
-    }
     &.cReg {
         font-family: $courier;
     }
     &.cItal {
         font-family: $courierI;
     }
-    &.cBold {
-        font-family: $courierB;
-    }
-    &.medium {
-        font-family: $medium;
-    }
     &.bold {
         font-family: $courierB;
-    }
-    &.heavy {
-        font-family: $heavy;
     }
 }
 
@@ -62,6 +50,36 @@ span.underline{
     border-bottom: 2px dotted darken($lGray, 5%);
     display: inline-block;
     height: 16px;
+    color: $dGreen;
+}
+
+@keyframes typeSmall {
+    0% {
+       width: 0; 
+    }
+    100% {
+        width: 305px;
+    }
+}
+
+@keyframes typeBig {
+    0% {
+       width: 0; 
+    }
+    100% {
+        width: 338px;
+    }
+}
+
+@keyframes type2 {
+    0% {
+        width: 0; 
+        opacity: 1;
+    }
+    100% {
+        width: 74px;
+        opacity: 1;
+    }
 }
 
 header {
@@ -72,53 +90,75 @@ header {
     & > div {
         display: table-cell;
         vertical-align: middle;
-        //text-align: center;
         & > h1 {
+            font-size: $baseSize * 1.8;
             color: $white;
-            width: 330px;
-            //margin: 0 auto;
+            width: 305px;
+            margin: 0 auto;
             white-space: nowrap;
+            letter-spacing: 1px;
             overflow: hidden;
-            letter-spacing: 1.2px;
-            animation: type 3s steps(30, end); 
+            animation: typeSmall 2.5s steps(19, end);
+            @media screen and (min-width 400px) {
+                width: 338px;
+                font-size: $baseSize * 2;
+                animation: typeBig 2.5s steps(19, end);
+            }
         }
         & > h4 {
             color: $blue;
-            width: 75px;
-            //margin: 0 auto;
+            width: 74px;
+            margin: 0 auto;
+            letter-spacing: 1px;
             white-space: nowrap;
             overflow: hidden;
-            animation: type2 8s steps(7, end);
+            opacity: 0;
+            animation: type2 1s 2.5s steps(6, end);
+            animation-fill-mode: forwards;
         }
     } 
 }
 
-@keyframes type{ 
-  from { width: 0; } 
-} 
-
-@keyframes type2{
-  0%{width: 0;}
-  70%{width: 0;}
-  100%{ width: 100; } 
-} 
+footer {
+    width: 100%;
+    background: $mGreen;
+    & > div {
+        //display: table-cell;
+        width: 100%;
+        text-align: center;
+        padding: 7px 0 7px 0;
+        & > p {
+            color: $white;
+            &.title {
+                color: $blue;
+                font-family: $courierB;
+            }
+            & > a {
+                color: $white;
+                text-decoration: none;
+            }
+        }
+    } 
+}
 
 a {
     text-decoration: none;
+    &:hover {
+            & > p.cred, p.git {
+                transition: all .3s ease-in-out;
+                border-bottom-color: darken($lGray, 15%);
+                cursor: pointer;
+            }
+        }   
     & > p.cred, p.git {
-        color: rgba($mGreen, 0.4);
-        border-bottom: 7px double rgba($mGreen, 0.4);
-        width: 160px;
-        transition: all .3s ease-in-out;
-        &:hover {
-            transition: all .3s ease-in-out;
-            color: rgba($mGreen, 0.8);
-            border-bottom-color: rgba($mGreen, 0.8);
-            cursor: pointer;
-        }    
+        font-size: 13px;
+        color: $dBlue;
+        border-bottom: 7px double $lGray;
+        width: 141px;
+        transition: all .3s ease-in-out; 
     }
     & p.git {
-        width: 220px;
+        width: 196px;
         margin: 28px auto;
     }
 }
@@ -139,7 +179,7 @@ a {
         padding: 0;
     }
     & > .left {
-        padding: 14px;
+        display: none;
         @media screen and (min-width: 768px) {
             display: table-cell;
             left: 5%;
@@ -158,11 +198,16 @@ a {
     }
     & > .right {
         padding: 14px 14px 14px 58px;
+        & > h5 {
+            margin-left: -44px;
+            @media screen and (min-width: 768px) {
+                margin-left: inherit;; 
+            }
+        }
         & > .item {
             margin: 28px 0;
         }
         &.center {
-            padding: 14px;
             text-align: center;
             & > h5 {
                 text-align: left;
@@ -174,7 +219,6 @@ a {
         &.visualisation {
             vertical-align: top;
             text-align: center;
-            padding: 14px;
             & > p, h5 {
                 text-align: left;
             }
@@ -240,15 +284,34 @@ ul {
     }    
 }
 
-.inner {
-    fill: $lGray;
+.interests > p {
+    margin: 28px 0;
 }
 
-.outer {
-    fill: none;
+.download   {
+    display: table;
+    text-align: center;
+    width: 200px;
+    & > a {
+        display: table-cell;
+        vertical-align: middle;
+        height: 50px;
+        &:hover {
+            & > p {
+                border-bottom-color: darken($lGray, 15%);
+                transition: all .3s ease-in-out;
+            }
+        }
+        & > p {
+            color: $dBlue;
+            font-family: $courierB;
+            border-bottom: 7px double $lGray;
+            transition: all .3s ease-in-out;
+        }
+    }
 }
 
-text, tspan {
+text {
     fill: $mBlue;
     font-family: $courier;
     font-size: 11px;
@@ -282,5 +345,8 @@ text, tspan {
 rect {
     @include rectColor($red, $mGreen, $tan, $mBlue, $dGreen);
     stroke-width: 3px;
+    &:hover {
+        cursor: pointer;
+    }
 }
  
