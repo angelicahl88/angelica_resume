@@ -17,23 +17,13 @@ $(document).ready(function() {
     var $vis = $('.right');
     var width = $vis.width();
     var sankeyH;
-//    var langH = 200;
-//    var circles;
-//    var innerR;
-//    var outerR;
-//    var langText;
-//    var formatPercent = d3.format('%');
     
     //check for window width to set sankeyH, width, innerR, outerR
     if ($(window).width() >= 768) {
         
         sankeyH = 600;
-//        innerR = 70;
-//        outerR = 80;
     } else {
         sankeyH = 450;
-//        innerR = 45;
-//        outerR = 55;
     }
     
     
@@ -45,25 +35,12 @@ $(document).ready(function() {
             height: sankeyH
         });
     
-//    //append SVG to #languange
-//    var langSVG = d3.select('#language').append('svg')
-//        .attr({
-//            width: width,
-//            height: langH
-//        });
-    
     //append g to sankeySVG
     var sankeyG = sankeySVG.append('g')
         .attr({
             class: 'sankeyG'
         });
     
-//    //append g to langSVG
-//    var langG = langSVG.append('g')
-//        .attr({
-//            class: 'langG'
-//        });
-//    
     
     /////////////   Sankey setup    ////////////////
     
@@ -99,63 +76,6 @@ $(document).ready(function() {
         
     };
     
-    
-    
-    
-    ////////////    Gradient setup  ////////////////
-    //gradient data
-//    var gradientData = [
-//        {link: 0, color: $mBlue},
-//        {link: 1, color: $mGreen},
-//        {link: 2, color: $tan},
-//        {link: 3, color: $red}
-//    ];
-//    
-//    //set up linear gradient
-//    var defs = sankeySVG.append('defs').selectAll('linearGradient')
-//        .data(gradientData)
-//        .enter().append('linearGradient')
-//        .attr({
-//            id: function(d) {
-//                return 'gradient-' + d.link;
-//            },
-//            x1: '0%',
-//            x2: '0%',
-//            y1: '100%',
-//            y2: '0%'
-//            //spreadMethod: 'reflect'
-//        });
-//
-//    defs.append('stop')
-//    .attr({
-//        offset: '0%'
-//    })
-//    .style({
-//        'stop-color': function(d) {
-//            return d.color;
-//        }
-//    });
-//
-//    defs.append('stop')
-//    .attr({
-//        offset: '100%'
-//    })
-//    .style({
-//        'stop-color': $dGreen
-//    });
-    
-//    defs.append("animate")
-//		.attr("attributeName","x1")
-//		.attr("values","0%;100%")
-//		.attr("dur","7s")
-//		.attr("repeatCount","indefinite");
-//		
-//	defs.append("animate")
-//		.attr("attributeName","x2")
-//		.attr("values","100%;200%")
-//		.attr("dur","7s")
-//		.attr("repeatCount","indefinite");
-
     
     ////////////    Sankey Skills   /////////////////
     //draw sankey
@@ -216,8 +136,6 @@ $(document).ready(function() {
                     return p.source !== d && p.target !== d; 
                 });
                 
-            
-                console.log(d);
                 var nodeId = 'textId' + d.node;
                 var sourceLength = d.sourceLinks.length;
                 var targetLength = d.targetLinks.length;
@@ -279,157 +197,8 @@ $(document).ready(function() {
             });
        
     }
-    
-    
-    
-    ////////////    Sankey hover events //////////////
-    function sankeyOver(d) {
         
-        link.selectAll('.link').classed('active', function(p) { 
-            return p.source === d || p.target === d; 
-        });
-        link.selectAll('.link').classed('inactive', function(p) { 
-            return p.source !== d && p.target !== d; 
-        });
         
-        d3.select(this).classed('active', true);
-        
-        link.selectAll('.link.active')
-            .style({
-                'stroke-opacity': 0.7
-            });
-        
-        link.selectAll('.link.inactive')
-            .style({
-                'stroke-opacity': 0.1
-            });
-        
-    }   //end sankeyOver function
-    
-    
-    ////////////    Language SKills  ////////////////
-    //draw circles for langSVG
-//    function drawCircles() {
-//        
-//        //set data for circles
-//        var circlePositions = [
-//            {id: 'a',class: 'outer swedish', cx: width / 4, cy: 100, r: outerR, lang: 'swe'},
-//            {id: 'b', class: 'inner swedish', cx: width / 4, cy: 100, r: innerR, text1: 'Swedish', text2: 0.00, text3: 'Native'},   
-//            {id: 'c',class: 'outer english', cx: (width / 4) * 3, cy: 100, r: outerR, lang: 'eng'},
-//            {id: 'd',class: 'inner english', cx: (width / 4) * 3, cy: 100, r: innerR, text1: 'English', text2: 0.00, text3: 'Fluent'}
-//        ]; 
-//        
-//        circles = langG.selectAll('circle')
-//            .data(circlePositions)
-//            .enter().append('circle')
-//            .attr({
-//                class: function(d) {
-//                    return d.class;
-//                },
-//                id: function(d) {
-//                    return d.id;
-//                },
-//                cx: function(d) {
-//                    return d.cx;
-//                },
-//                cy: function(d) {
-//                        return d.cy;
-//                    },
-//                r: function(d) {
-//                        return d.r;
-//                    },
-//            });
-//        
-//        //set fill for outer circles
-//        d3.selectAll('circle.outer')
-//            .style({
-//                stroke: function(d) {
-//                    return 'url(#gradient-' + d.lang + ')';
-//                },
-//                'stroke-width': '10px',
-//                'stroke-dasharray': '8,4,2,2,2,4'
-//            });
-//        
-//        //append text
-//        circleText('Swedish', width / 4, 'Native');
-//        circleText('English', (width / 4) * 3, 'Fluent');
-//        
-//    }   //end function drawCircles
-//    
-//    
-//    function circleText(language, xval, level) {
-//        
-//        //append text to langG
-//        langText = langG.append('text')
-//            .attr({
-//                x: xval,
-//                y: 85,
-//                'text-anchor': 'middle',
-//                class: language
-//            })
-//            .text(language);
-//        
-//        langText.append('tspan')
-//            .attr({
-//                dy: 20,
-//                x: xval,
-//                id: 'textPercent',
-//                class: language
-//            })
-//            .text('0%');
-//        
-//        langText.append('tspan')
-//            .attr({
-//                dy: 20,
-//                x: xval,
-//                class: language
-//            })
-//            .text(level);
-//    }
-//    
-//    
-//    function updateCircles() {
-//        
-//        defs.selectAll('stop')
-//            .transition()
-//                .duration(1500)
-//                .ease('cubic-in-out')
-//                .attr({
-//                    offset: '100%'
-//                });
-//        
-//        langText.selectAll('tspan#textPercent')
-//            .transition()
-//            .duration(1500)
-//            .ease('cubic-in-out')
-//            .tween('text', tweenText(1))
-//        
-//    }   //end function updateCircles
-    
-    
-//    //tween between percent values
-//    function tweenText( newValue ) {
-//        return function() {
-//            var i = d3.interpolate( 0, newValue );
-//
-//            return function(t) {
-//              d3.selectAll('tspan#textPercent').text(formatPercent(i(t)));
-//            };
-//        }
-//    }   //end tweentext
-//    
-//    
-//    //call drawCircles
-//    drawCircles();
-//    //temporary click function to display circle transition
-//    $('circle').click(updateCircles);
-    
-    
-    
-    
-    
-    
-    
     ////////////////////////////////////////
     ///////     RESIZE FUNCTION     ////////
     ////////////////////////////////////////
@@ -441,12 +210,8 @@ $(document).ready(function() {
         //check for window width to set sankeyH, width, innerR, outerR
         if ($(window).width() >= 768) {
             sankeyH = 600;
-//            innerR = 70;
-//            outerR = 80;
         } else {
             sankeyH = 450;
-//            innerR = 45;
-//            outerR = 55;
         }
         
         
@@ -454,20 +219,6 @@ $(document).ready(function() {
         sankeySVG.attr({width: width, height: sankeyH});
         //langSVG.attr({width: width});
         
-        
-        
-        //update circle positions
-//        d3.selectAll('circle.swedish').attr({cx: width / 4});        
-//        d3.selectAll('circle.english').attr({cx: (width / 4) * 3});
-//        d3.selectAll('circle.inner').attr({r: innerR});
-//        d3.selectAll('circle.outer').attr({r: outerR});
-//        
-//        
-//        //Update circle text
-//        d3.selectAll('text.Swedish').attr({x: width / 4});
-//        d3.selectAll('tspan.Swedish').attr({x: width / 4});
-//        d3.selectAll('text.English').attr({x: (width / 4) * 3});
-//        d3.selectAll('tspan.English').attr({x: (width / 4) * 3});
         
         sankey.size([width, sankeyH]);
         d3.selectAll(".link").attr({d: sankeyPath});
