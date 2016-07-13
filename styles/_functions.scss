@@ -1,0 +1,10 @@
+@function makeshadow($color){
+    $val: 0px 0px $color;
+    $len: 2;
+    
+    @for $i from 1 through $len {
+        $val: #{$val}, #{$i}px #{$i}px #{$color};
+    }
+    
+    @return $val;
+}
