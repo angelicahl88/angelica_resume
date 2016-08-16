@@ -56,7 +56,7 @@ span.underline{
 
 @keyframes typeSmall {
     0% {
-       width: 0; 
+       width: 0;
     }
     100% {
         width: 305px;
@@ -65,7 +65,7 @@ span.underline{
 
 @keyframes typeBig {
     0% {
-       width: 0; 
+       width: 0;
     }
     100% {
         width: 338px;
@@ -74,7 +74,7 @@ span.underline{
 
 @keyframes type2 {
     0% {
-        width: 0; 
+        width: 0;
         opacity: 1;
     }
     100% {
@@ -136,7 +136,7 @@ header {
             animation: type2 2.5s 2.5s steps(18, end);
             animation-fill-mode: forwards;
         }
-    } 
+    }
 }
 
 footer {
@@ -158,7 +158,7 @@ footer {
                 text-decoration: none;
             }
         }
-    } 
+    }
 }
 
 a {
@@ -169,13 +169,13 @@ a {
                 border-bottom-color: darken($lGray, 15%);
                 cursor: pointer;
             }
-        }   
+        }
     & > p.cred, p.git {
         font-size: 13px;
         color: $dBlue;
         border-bottom: 7px double $lGray;
         width: 141px;
-        transition: all .3s ease-in-out; 
+        transition: all .3s ease-in-out;
     }
     & p.git {
         width: 196px;
@@ -221,7 +221,7 @@ a {
         & > h5 {
             margin-left: -44px;
             @media screen and (min-width: 768px) {
-                margin-left: inherit;; 
+                margin-left: inherit;;
             }
         }
         & > .item {
@@ -301,7 +301,7 @@ ul {
         & > div {
             display: table-cell;
         }
-    }    
+    }
 }
 
 .interests > p {
@@ -316,10 +316,12 @@ ul {
         display: table-cell;
         vertical-align: middle;
         height: 50px;
+        cursor: pointer;
         &:hover {
             & > p {
                 border-bottom-color: darken($lGray, 15%);
                 transition: all .3s ease-in-out;
+                cursor: pointer;
             }
         }
         & > p {
@@ -369,4 +371,3 @@ rect {
         cursor: pointer;
     }
 }
- 
