@@ -1,20 +1,20 @@
 $(document).ready(function() {
-    
-    
+
+
     //global variables
     var $vis = $('.right');
     var width = $vis.width();
     var sankeyH;
-    
+
     //check for window width to set sankeyH, width, innerR, outerR
     if ($(window).width() >= 768) {
-        
+
         sankeyH = 600;
     } else {
-        sankeyH = 450;
+        sankeyH = 480;
     }
-    
-    
+
+
     /****************    SVG's setup      ****************/
     //append SVG to #sankey
     var sankeySVG = d3.select('#sankey').append('svg')
@@ -22,21 +22,21 @@ $(document).ready(function() {
             width: width,
             height: sankeyH
         });
-    
+
     //append g to sankeySVG
     var sankeyG = sankeySVG.append('g')
         .attr({
             class: 'sankeyG'
         });
-    
-    
+
+
     /****************  Sankey setup    ****************/
-    
+
     var sankeyGraph;
     var node;
     var link;
     var rect;
-    
+
     // Set the sankey diagram properties
     var sankey = d3.sankey()
         .nodeWidth(10)
@@ -44,37 +44,37 @@ $(document).ready(function() {
         .size([width, sankeyH]);
 
     var sankeyPath = sankey.link();
-    
+
     //queue data
     queue()
         .defer(d3.json, 'data/sankey.json')
         .await(pushData);
-    
-    
-    
+
+
+
     //load data
     function pushData(error, sankeyData) {
 
         if (error) throw error;
-        
+
         //Update global variable with sankeyData
         sankeyGraph = sankeyData;
         //draw sankey
         drawSankey();
-        
+
     };
-    
-    
+
+
     /****************   Draw Sankey   ****************/
-    
+
     //draw sankey
     function drawSankey() {
-        
+
         sankey
             .nodes(sankeyGraph.nodes)
             .links(sankeyGraph.links)
             .layout(32);
-        
+
         // add in the links
         link = sankeySVG.append('g').selectAll(".link")
             .data(sankeyGraph.links)
@@ -91,8 +91,8 @@ $(document).ready(function() {
                 'stroke-dasharray': '2,2'
             })
             .sort(function(a, b) { return b.dy - a.dy; });
-        
-        
+
+
         // add in the nodes
         node = sankeySVG.append('g').selectAll(".node")
             .data(sankeyGraph.nodes)
@@ -103,7 +103,7 @@ $(document).ready(function() {
                     return "translate(" + d.x + "," + d.y + ")";
                 }
             });
-        
+
         //append rectangles to nodes
         rect = node.append("rect")
             .attr({
@@ -118,52 +118,52 @@ $(document).ready(function() {
                 }
             })
             .on('mouseover', function(d) {
-            
+
                 //check if source or target of link are same as hovered node and set class active/inactive
-                d3.selectAll('.link').classed('active', function(p) { 
-                    return p.source === d || p.target === d; 
+                d3.selectAll('.link').classed('active', function(p) {
+                    return p.source === d || p.target === d;
                 });
-                d3.selectAll('.link').classed('inactive', function(p) { 
-                    return p.source !== d && p.target !== d; 
+                d3.selectAll('.link').classed('inactive', function(p) {
+                    return p.source !== d && p.target !== d;
                 });
-                
-            
+
+
                 //text variables
                 var nodeId = 'textId' + d.node;
                 var sourceLength = d.sourceLinks.length;
                 var targetLength = d.targetLinks.length;
-                
+
                 //set active class on text node of hovered element
                 $('text#' + nodeId).addClass('active');
-                
+
                 //loop through source and target links to set active class on text
                 if (sourceLength !== 0) {
                    for (var i = 0; i < sourceLength; i++) {
                        var tNodeId = 'textId' + d.sourceLinks[i].target.node;
-                       
-                       $('text#' + tNodeId).addClass('active');       
-                    } 
+
+                       $('text#' + tNodeId).addClass('active');
+                    }
                 } else if (targetLength !== 0) {
                     for (var i = 0; i < targetLength; i++) {
                         var tNodeId = 'textId' + d.targetLinks[i].source.node;
-                       
-                       $('text#' + tNodeId).addClass('active');         
-                    } 
+
+                       $('text#' + tNodeId).addClass('active');
+                    }
                 }
-                            
+
                 //set hovered node as class active
                 d3.select(this).classed('active', true);
-                
-                
+
+
             })
             .on('mouseout', function(d) {
-                
+
                 //remove active and inactive classes
                 d3.selectAll('.active').classed('active', false);
                 d3.selectAll('.inactive').classed('inactive', false);
-            
+
             });
-        
+
         //Append text to node
         node
             .append("text")
@@ -189,52 +189,52 @@ $(document).ready(function() {
                 x: 6 + sankey.nodeWidth(),
                 'text-anchor': 'start'
             });
-       
+
     }
-        
+
     /****************    RESIZE FUNCTION     ****************/
-    
+
     $(window).resize(function() {
-        
+
         width = $vis.width();;
-        
+
         //check for window width to set sankeyH, width, innerR, outerR
         if ($(window).width() >= 768) {
             sankeyH = 600;
         } else {
-            sankeyH = 450;
+            sankeyH = 480;
         }
-        
-        
+
+
         //update vis SVG's height and width
         sankeySVG
             .attr({width: width, height: sankeyH});
-        
+
         //update sankey width
         sankey
             .size([width, sankeyH]);
-        
+
         //reset sankey
         sankey
             .nodes(sankeyGraph.nodes)
             .links(sankeyGraph.links)
             .layout(32);
-        
+
         //Update node positioning
         node
-            .attr("transform", function(d) { 
-                return "translate(" + d.x + "," + d.y + ")"; 
+            .attr("transform", function(d) {
+                return "translate(" + d.x + "," + d.y + ")";
             });
-        
+
         //Update rect height
         d3.selectAll('rect')
-            .attr("height", function(d) { return d.dy; 
+            .attr("height", function(d) { return d.dy;
             });
-        
+
         //update links
         link
             .attr("d", sankeyPath);
-        
+
         //update text positioning
         d3.selectAll('text')
             .attr({
@@ -242,7 +242,7 @@ $(document).ready(function() {
                     return d.dy / 3 * 2;
                 }
             });
-        
+
         d3.selectAll('text')
             .filter(function(d) {
                 return d.x < width / 2;
@@ -252,10 +252,10 @@ $(document).ready(function() {
                     return d.dy / 2;
                 }
             });
-        
-           
-        
+
+
+
     });     //end function resize
-    
-    
+
+
 }); //end all
