@@ -21,7 +21,10 @@
         {"node": 18, "name": "PostgreSQL"},
         {"node": 19, "name": "Adobe Illustrator"},
         {"node": 20, "name": "Adobe Indesign"},
-        {"node": 21, "name": "OpenLayers"}
+        {"node": 21, "name": "OpenLayers"},
+        {"node": 22, "name": "Node.js"},
+        {"node": 23, "name": "gulp"},
+        {"node": 24, "name": "Mocha"}
     ],
     "links": [
         {"source": 0, "target": 4, "value": 3},
@@ -35,6 +38,9 @@
         {"source": 0, "target": 12, "value": 3},
         {"source": 0, "target": 16, "value": 3},
         {"source": 0, "target": 21, "value": 3},
+        {"source": 0, "target": 22, "value": 3},
+        {"source": 0, "target": 23, "value": 3},
+        {"source": 0, "target": 24, "value": 3},
         {"source": 1, "target": 13, "value": 4},
         {"source": 1, "target": 14, "value": 4},
         {"source": 1, "target": 15, "value": 4},
