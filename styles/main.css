@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/
+/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -44,12 +44,13 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
 @font-face {
   font-family: 'Sweden Sans';
-  src: url(/fonts/swedensans-webfont.woff), url(/fonts/swedensans-webfont.woff2); }
+  src: url(angelica_resume/fonts/swedensans-webfont.woff), url(angelica_resume/fonts/swedensans-webfont.woff2); }
 @font-face {
   font-family: 'Sweden Sans Bold';
-  src: url(/fonts/swedensansbold-webfont.woff), url(/fonts/swedensansbold-webfont.woff2); }
+  src: url(angelica_resume/fonts/swedensansbold-webfont.woff), url(angelica_resume/fonts/swedensansbold-webfont.woff2); }
 p, h1, h2, h3, h4, h5, h6 {
   color: #111;
   font-family: "Sweden Sans", "Helvetica", monospace;
@@ -81,27 +82,6 @@ h5 {
 
 h6 {
   font-size: 16px; }
-
-p {
-  font-size: 14px; }
-
-h1 {
-  font-size: 28px; }
-
-h2 {
-  font-size: 25.2px; }
-
-h3 {
-  font-size: 22.4px; }
-
-h4 {
-  font-size: 19.6px; }
-
-h5 {
-  font-size: 16.8px; }
-
-h6 {
-  font-size: 14px; }
 
 span.lower {
   text-transform: none; }
