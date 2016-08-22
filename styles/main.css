@@ -44,8 +44,6 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
-
-<<<<<<< HEAD
 @font-face {
   font-family: 'Sweden Sans';
   src: url(/fonts/swedensans-webfont.woff), url(/fonts/swedensans-webfont.woff2); }
