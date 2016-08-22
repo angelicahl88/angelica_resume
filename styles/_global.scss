@@ -1,17 +1,14 @@
 p, h1, h2, h3, h4, h5, h6 {
     color: $black;
-    font-family: $courier;
+    font-family: $swedenreg, "Helvetica", monospace;
     line-height: 1.5;
     margin: 7px 0;
     cursor: default;
     &.cReg {
-        font-family: $courier;
-    }
-    &.cItal {
-        font-family: $courierI;
+        font-family: $swedenreg, "Helvetica", monospace;
     }
     &.bold {
-        font-family: $courierB;
+        font-family: $swedenbold, "Helvetica", monospace;
     }
 }
 
@@ -54,31 +51,22 @@ span.underline{
     color: $dGreen;
 }
 
-@keyframes typeSmall {
+@keyframes typeheader {
     0% {
        width: 0;
     }
     100% {
-        width: 305px;
+        width: 290px;
     }
 }
 
-@keyframes typeBig {
-    0% {
-       width: 0;
-    }
-    100% {
-        width: 338px;
-    }
-}
-
-@keyframes type2 {
+@keyframes typesubheader {
     0% {
         width: 0;
         opacity: 1;
     }
     100% {
-        width: 227px;
+        width: 228px;
         opacity: 1;
     }
 }
@@ -109,17 +97,12 @@ header {
             transform: translateX(-50%);
             font-size: $baseSize * 1.8;
             color: $white;
-            width: 305px;
+            width: 290px;
             margin: 0 auto;
             white-space: nowrap;
-            letter-spacing: 1px;
+            letter-spacing: 2.4px;
             overflow: hidden;
-            animation: typeSmall 2.5s steps(19, end);
-            @media screen and (min-width 400px) {
-                width: 338px;
-                font-size: $baseSize * 2;
-                animation: typeBig 2.5s steps(19, end);
-            }
+            animation: typeheader 2.5s steps(19, end);
         }
         & > h4 {
             position: absolute;
@@ -129,11 +112,11 @@ header {
             color: $blue;
             width: 228px;
             margin: 0 auto;
-            letter-spacing: 1px;
+            letter-spacing: 2.4px;
             white-space: nowrap;
             overflow: hidden;
             opacity: 0;
-            animation: type2 2.5s 2.5s steps(18, end);
+            animation: typesubheader 2.5s 2.5s steps(18, end);
             animation-fill-mode: forwards;
         }
     }
@@ -151,7 +134,7 @@ footer {
             color: $white;
             &.title {
                 color: $blue;
-                font-family: $courierB;
+                font-family: $swedenbold, "Helvetica", monospace;
             }
             & > a {
                 color: $white;
@@ -171,7 +154,7 @@ a {
             }
         }
     & > p.cred, p.git {
-        font-size: 13px;
+        font-size: 14px;
         color: $dBlue;
         border-bottom: 7px double $lGray;
         width: 141px;
@@ -282,11 +265,12 @@ ul {
         border-top: 2px dotted $lGray;
         padding-top: 14px;
         & > p {
-            font-family: $courier;
-            font-size: 12px;
-            line-height: 1.2;
+            font-family: $swedenreg, "Helvetica", monospace;
+            font-size: 14px;
+            line-height: 1.4;
             display: table-cell;
-            width: 80px;
+            width: 70px;
+            padding-right: 20px;
             color: $dGreen;
             &::before {
                 content: '(';
@@ -326,7 +310,7 @@ ul {
         }
         & > p {
             color: $dBlue;
-            font-family: $courierB;
+            font-family: $swedenbold, "Helvetica", monospace;
             border-bottom: 7px double $lGray;
             transition: all .3s ease-in-out;
         }
@@ -335,16 +319,13 @@ ul {
 
 text {
     fill: $mBlue;
-    font-family: $courier;
-    font-size: 11px;
+    font-family: $swedenreg, "Helvetica", monospace;
+    font-size: 12px;
     pointer-events: none;
     &.active {
-        font-family: $courierB;
+        font-family: $swedenbold, "Helvetica", monospace;
         letter-spacing: 1.2px;
         text-transform: uppercase;
-    }
-    @media screen and (min-width: 768px) {
-        font-size: 12px;
     }
 }
 

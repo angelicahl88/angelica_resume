@@ -1,9 +1,20 @@
 //Font styles
-$courier:'Courier New W07 Regular';
-$courierI:'Courier New W01 Italic';
-$courierB:'Courier New W01 Bold';
+@font-face {
+  font-family: 'Sweden Sans';
+  src: url(/fonts/swedensans-webfont.woff),
+       url(/fonts/swedensans-webfont.woff2);
+}
 
-$baseSize: 14px;
+@font-face {
+  font-family: 'Sweden Sans Bold';
+  src: url(/fonts/swedensansbold-webfont.woff),
+       url(/fonts/swedensansbold-webfont.woff2);
+}
+
+$swedenreg: 'Sweden Sans';
+$swedenbold: 'Sweden Sans Bold';
+
+$baseSize: 16px;
 
 
 //Colours
@@ -22,4 +33,3 @@ $tan: #a2846a;
 $lTan: #c8a98c;
 
 $lGray: #e9e9e9;
-

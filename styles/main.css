@@ -45,39 +45,43 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+@font-face {
+  font-family: 'Sweden Sans';
+  src: url(/fonts/swedensans-webfont.woff), url(/fonts/swedensans-webfont.woff2); }
+@font-face {
+  font-family: 'Sweden Sans Bold';
+  src: url(/fonts/swedensansbold-webfont.woff), url(/fonts/swedensansbold-webfont.woff2); }
 p, h1, h2, h3, h4, h5, h6 {
   color: #111;
-  font-family: "Courier New W07 Regular";
+  font-family: "Sweden Sans", "Helvetica", monospace;
   line-height: 1.5;
   margin: 7px 0;
   cursor: default; }
   p.cReg, h1.cReg, h2.cReg, h3.cReg, h4.cReg, h5.cReg, h6.cReg {
-    font-family: "Courier New W07 Regular"; }
-  p.cItal, h1.cItal, h2.cItal, h3.cItal, h4.cItal, h5.cItal, h6.cItal {
-    font-family: "Courier New W01 Italic"; }
+    font-family: "Sweden Sans", "Helvetica", monospace; }
   p.bold, h1.bold, h2.bold, h3.bold, h4.bold, h5.bold, h6.bold {
-    font-family: "Courier New W01 Bold"; }
+    font-family: "Sweden Sans Bold", "Helvetica", monospace; }
 
 p {
-  font-size: 14px; }
+  font-size: 16px; }
 
 h1 {
-  font-size: 28px; }
+  font-size: 32px; }
 
 h2 {
-  font-size: 25.2px; }
+  font-size: 28.8px; }
 
 h3 {
-  font-size: 22.4px; }
+  font-size: 25.6px; }
 
 h4 {
-  font-size: 19.6px; }
+  font-size: 22.4px; }
 
 h5 {
-  font-size: 16.8px; }
+  font-size: 19.2px; }
 
 h6 {
-  font-size: 14px; }
+  font-size: 16px; }
 
 span.lower {
   text-transform: none; }
@@ -88,22 +92,17 @@ span.underline {
   height: 16px;
   color: #55605a; }
 
-@keyframes typeSmall {
+@keyframes typeheader {
   0% {
     width: 0; }
   100% {
-    width: 305px; } }
-@keyframes typeBig {
-  0% {
-    width: 0; }
-  100% {
-    width: 338px; } }
-@keyframes type2 {
+    width: 290px; } }
+@keyframes typesubheader {
   0% {
     width: 0;
     opacity: 1; }
   100% {
-    width: 227px;
+    width: 228px;
     opacity: 1; } }
 @keyframes intro {
   0% {
@@ -123,32 +122,27 @@ header {
     top: 250px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 25.2px;
+    font-size: 28.8px;
     color: #fff;
-    width: 305px;
+    width: 290px;
     margin: 0 auto;
     white-space: nowrap;
-    letter-spacing: 1px;
+    letter-spacing: 2.4px;
     overflow: hidden;
-    animation: typeSmall 2.5s steps(19, end); }
-    @media screen and (min-width 400px) {
-      header > div > h1 {
-        width: 338px;
-        font-size: 28px;
-        animation: typeBig 2.5s steps(19, end); } }
+    animation: typeheader 2.5s steps(19, end); }
   header > div > h4 {
     position: absolute;
     top: 296px;
     left: 50%;
     transform: translateX(-50%);
     color: #0f2228;
-    width: 227px;
+    width: 228px;
     margin: 0 auto;
-    letter-spacing: 1px;
+    letter-spacing: 2.4px;
     white-space: nowrap;
     overflow: hidden;
     opacity: 0;
-    animation: type2 2.5s 2.5s steps(18, end);
+    animation: typesubheader 2.5s 2.5s steps(18, end);
     animation-fill-mode: forwards; }
 
 footer {
@@ -162,7 +156,7 @@ footer {
       color: #fff; }
       footer > div > p.title {
         color: #0f2228;
-        font-family: "Courier New W01 Bold"; }
+        font-family: "Sweden Sans Bold", "Helvetica", monospace; }
       footer > div > p > a {
         color: #fff;
         text-decoration: none; }
@@ -174,7 +168,7 @@ a {
     border-bottom-color: #c3c3c3;
     cursor: pointer; }
   a > p.cred, a p.git {
-    font-size: 13px;
+    font-size: 14px;
     color: #132f3b;
     border-bottom: 7px double #e9e9e9;
     width: 141px;
@@ -276,11 +270,12 @@ ul {
     border-top: 2px dotted #e9e9e9;
     padding-top: 14px; }
     ul > li > p {
-      font-family: "Courier New W07 Regular";
-      font-size: 12px;
-      line-height: 1.2;
+      font-family: "Sweden Sans", "Helvetica", monospace;
+      font-size: 14px;
+      line-height: 1.4;
       display: table-cell;
-      width: 80px;
+      width: 70px;
+      padding-right: 20px;
       color: #55605a; }
       ul > li > p::before {
         content: '('; }
@@ -302,28 +297,27 @@ ul {
   .download > a {
     display: table-cell;
     vertical-align: middle;
-    height: 50px; }
+    height: 50px;
+    cursor: pointer; }
     .download > a:hover > p {
       border-bottom-color: #c3c3c3;
-      transition: all .3s ease-in-out; }
+      transition: all .3s ease-in-out;
+      cursor: pointer; }
     .download > a > p {
       color: #132f3b;
-      font-family: "Courier New W01 Bold";
+      font-family: "Sweden Sans Bold", "Helvetica", monospace;
       border-bottom: 7px double #e9e9e9;
       transition: all .3s ease-in-out; }
 
 text {
   fill: #294a51;
-  font-family: "Courier New W07 Regular";
-  font-size: 11px;
+  font-family: "Sweden Sans", "Helvetica", monospace;
+  font-size: 12px;
   pointer-events: none; }
   text.active {
-    font-family: "Courier New W01 Bold";
+    font-family: "Sweden Sans Bold", "Helvetica", monospace;
     letter-spacing: 1.2px;
     text-transform: uppercase; }
-  @media screen and (min-width: 768px) {
-    text {
-      font-size: 12px; } }
 
 .link {
   fill: none;
