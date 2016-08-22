@@ -47,10 +47,10 @@ table {
 
 @font-face {
   font-family: 'Sweden Sans';
-  src: url(angelica_resume/fonts/swedensans-webfont.woff), url(angelica_resume/fonts/swedensans-webfont.woff2); }
+  src: url(../fonts/swedensans-webfont.woff), url(../fonts/swedensans-webfont.woff2); }
 @font-face {
   font-family: 'Sweden Sans Bold';
-  src: url(angelica_resume/fonts/swedensansbold-webfont.woff), url(angelica_resume/fonts/swedensansbold-webfont.woff2); }
+  src: url(../fonts/swedensansbold-webfont.woff), url(../fonts/swedensansbold-webfont.woff2); }
 p, h1, h2, h3, h4, h5, h6 {
   color: #111;
   font-family: "Sweden Sans", "Helvetica", monospace;
