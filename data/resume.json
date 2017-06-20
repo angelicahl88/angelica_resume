@@ -1,0 +1,243 @@
+{
+   "sections": {
+      "statement": {
+         "sectionName": "Section 1.0",
+         "title": "Personal Statement",
+         "body": {
+            "type": "paragraph",
+            "content": [
+               {
+                  "id": "stat1",
+                  "text": "I am co-founder of Geoshepherds, a geo design consultancy based in Sweden. I have spent the past 8 years developing a strong business acumen and vision from my work in managerial positions in Canada, Australia and Scandinavia. More recently, I have focused on developing strong technical skills within the geospatial industry for integration with web development and data science. I am driven by challenges, personal development and finding solutions to everyday problems."
+               }
+            ]
+         }
+      },
+      "skills": {
+         "sectionName": "Section 2.0",
+         "title": "Skills",
+         "body": {
+            "type": "graph",
+            "content": {
+                "nodes": [
+                    {"node": 0, "name": "Web Development"},
+                    {"node": 1, "name": "Geospatial"},
+                    {"node": 2, "name": "Design"},
+                    {"node": 3, "name": "Data Management"},
+                    {"node": 4, "name": "AngularJS"},
+                    {"node": 5, "name": "D3.js"},
+                    {"node": 6, "name": "Leaflet"},
+                    {"node": 7, "name": "React"},
+                    {"node": 8, "name": "Node.js"},
+                    {"node": 9, "name": "Javascript"},
+                    {"node": 10, "name": "Python"},
+                    {"node": 11, "name": "PHP"},
+                    {"node": 12, "name": "CSS3, Sass"},
+                    {"node": 13, "name": "GRASS GIS"},
+                    {"node": 14, "name": "PCI Geomatica"},
+                    {"node": 15, "name": "QGIS"},
+                    {"node": 16, "name": "CartoCSS"},
+                    {"node": 17, "name": "PostGIS"},
+                    {"node": 18, "name": "PostgreSQL"},
+                    {"node": 19, "name": "Adobe Illustrator"},
+                    {"node": 20, "name": "Adobe Indesign"},
+                    {"node": 21, "name": "OpenLayers"},
+                    {"node": 22, "name": "Webpack, Gulp"}
+                ],
+                "links": [
+                    {"source": 0, "target": 4, "value": 3},
+                    {"source": 0, "target": 5, "value": 3},
+                    {"source": 0, "target": 6, "value": 3},
+                    {"source": 0, "target": 7, "value": 3},
+                    {"source": 0, "target": 8, "value": 3},
+                    {"source": 0, "target": 9, "value": 3},
+                    {"source": 0, "target": 10, "value": 3},
+                    {"source": 0, "target": 11, "value": 3},
+                    {"source": 0, "target": 12, "value": 3},
+                    {"source": 0, "target": 16, "value": 3},
+                    {"source": 0, "target": 22, "value": 3},
+                    {"source": 1, "target": 13, "value": 4},
+                    {"source": 1, "target": 14, "value": 4},
+                    {"source": 1, "target": 15, "value": 4},
+                    {"source": 1, "target": 16, "value": 4},
+                    {"source": 1, "target": 17, "value": 4},
+                    {"source": 1, "target": 18, "value": 4},
+                    {"source": 1, "target": 21, "value": 4},
+                    {"source": 2, "target": 16, "value": 5},
+                    {"source": 2, "target": 19, "value": 5},
+                    {"source": 2, "target": 20, "value": 5},
+                    {"source": 2, "target": 12, "value": 5},
+                    {"source": 3, "target": 21, "value": 5},
+                    {"source": 3, "target": 17, "value": 6},
+                    {"source": 3, "target": 18, "value": 6}
+                ]
+             }
+         }
+       },
+       "work": {
+          "sectionName": "Section 3.0",
+          "title": "Examples of Work",
+          "specialClass": "gitWrapper",
+          "body": {
+             "type": "imagelink",
+             "content": "PUT CONTENT HERE"
+          }
+       },
+       "eductaion": {
+          "sectionName": "Section 4.0",
+          "title": "Education",
+          "body": {
+             "type": "ul",
+             "content": [
+              {
+                 "id": "edu6",
+                 "years": "2015 - 2017",
+                 "name": "TeamTreehouse",
+                 "details": "HTML, Javascript, CSS, Design, React, AngularJS, Node.js, Mocha, Webpack, Gulp, Python, C#, PHP",
+                 "link": {
+                    "url": "https://teamtreehouse.com/geoshepherds",
+                    "text": "View Credentials"
+                 }
+              },
+              {
+                 "id": "edu5",
+                 "years": "2015",
+                 "name": "ESA - Monitoring Earth from Space",
+                 "details": "Course covering recent and current satellite missions providing an archive of essential data and its uses in local and international policy and planning"
+              },
+              {
+                 "id": "edu4",
+                 "years": "2015",
+                 "name": "W3 Schools",
+                 "details": "HTML, HTML5, CSS, CSS3"
+              },
+              {
+                 "id": "edu3",
+                 "years": "2012",
+                 "name": "REIWA - Cert. IV in Property Services, WA, Australia",
+                 "details": "Nationally recognised qualification and license in Property Management"
+              },
+              {
+                 "id": "edu2",
+                 "years": "2008 - 2009",
+                 "name": "Griffith University, QLD, Australia",
+                 "details": "Marketing and Communications"
+              },
+              {
+                 "id": "edu1",
+                 "years": "2004 - 2007",
+                 "name": "Kungsholmens Musikgymnasium, Stockholm, Sweden",
+                 "details": "Social Studies and Music Degree"
+              }
+            ]
+          }
+       },
+       "experience": {
+          "sectionName": "Section 5.0",
+          "title": "Work Experience",
+          "body": {
+             "type": "ul",
+             "content": [
+              {
+                 "id": "exp6",
+                 "years": "2016 - current",
+                 "name": "Datscha",
+                 "details": "System Developer - Stockholm, Sweden"
+              },
+              {
+                 "id": "exp5",
+                 "years": "2015 - current",
+                 "name": "Co-Founder, Web Developer",
+                 "details": "Geoshepherds - Stockholm, Sweden"
+              },
+              {
+                 "id": "exp4",
+                 "years": "2013 - 2015",
+                 "name": "Manager",
+                 "details": "Escape Travel - Perth, Australia"
+              },
+              {
+                 "id": "exp3",
+                 "years": "2012 - 2013",
+                 "name": "Property Manager / BDM",
+                 "details": "ACTON Coogee Real Estate - Perth, Australia"
+              },
+              {
+                 "id": "exp2",
+                 "years": "2011 - 2012",
+                 "name": "Assistant Property Manager",
+                 "details": "LJ Hooker Real Estate - Perth, Australia"
+              },
+              {
+                 "id": "exp1",
+                 "years": "2009 - 2011",
+                 "name": "Department Manager",
+                 "details": "Sport Chek - Victoria, Canada"
+              }
+            ]
+          }
+       },
+       "interests": {
+          "sectionName": "Section 6.0",
+          "title": "Interests",
+          "body": {
+             "type": "paragraph",
+             "content": [
+                {
+                   "id": "int1",
+                   "keyword": "Music",
+                   "text": "The feeling you get from practicing, listening to, and for the first time hearing, a piece of well written <span class='underline'>Music</span>"
+                },
+                {
+                   "id": "int2",
+                   "keyword": "Travel",
+                   "text": "<span class='underline'>Travel</span> &#45;  to broaden views, explore new regions, challenge mindsets and unexpected encounters"
+                },
+                {
+                   "id": "int3",
+                   "keyword": "the Outdoors",
+                   "text": "The fresh perspective, revitalised mind and clear vision that can only be found by being in <span class='underline'>the Outdoors</span>"
+                },
+                {
+                   "id": "int4",
+                   "keyword": "Design",
+                   "text": "<span class='underline'>Design</span> &#45; visually powerful, intellectually elegant, timeless"
+                },
+                {
+                   "id": "int5",
+                   "keyword": "Surfing",
+                   "text": "<span class='underline'>Surfing</span> for fun, for technique, for balance, to be in the now, for the thrill of riding a wave, and, for the humbling experience of being in the ocean"
+                },
+                {
+                   "id": "int6",
+                   "keyword": "Learning",
+                   "text": "<span class='underline'>Learning</span> &#45; a curiosity about why things are and how they work"
+                }
+             ]
+          }
+       }
+   },
+   "footer": [
+      {
+        "title": "Email",
+        "link": {
+           "url": "mailto:angelica@geoshepherds.com",
+           "text": "angelica@geoshepherds.com"
+        }
+      },
+      {
+        "title": "Phone",
+        "link": {
+           "url": "tel:+46761008381",
+           "text": "+46 (0)76 100 83 81"
+        }
+     },
+      {
+        "title": "Website",
+        "link": {
+           "url": "http://geoshepherds.com",
+           "text": "http://geoshepherds.com"
+        }
+      }
+   ]
+}

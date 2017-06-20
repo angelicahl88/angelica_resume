@@ -1,0 +1,35 @@
+//Font styles
+@font-face {
+  font-family: 'Sweden Sans';
+  src: url(../../fonts/swedensans-webfont.woff),
+       url(../../fonts/swedensans-webfont.woff2);
+}
+
+@font-face {
+  font-family: 'Sweden Sans Bold';
+  src: url(../../fonts/swedensansbold-webfont.woff),
+       url(../../fonts/swedensansbold-webfont.woff2);
+}
+
+$swedenreg: 'Sweden Sans';
+$swedenbold: 'Sweden Sans Bold';
+
+$baseSize: 16px;
+
+
+//Colours
+$white: #fff;
+$black: #111;
+$blue: #0f2228;
+$green: #535c43;
+$yellow: #cc9900;
+$red: #7a6364;
+
+$dBlue: #132f3b;
+$mBlue: #294a51;
+$dGreen: #55605a;
+$mGreen: #7a7863;
+$tan: #a2846a;
+$lTan: #c8a98c;
+
+$lGray: #e9e9e9;
