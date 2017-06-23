@@ -3,7 +3,7 @@
         @if $color == $dBlue {
             &.dBlue {
                 background: $color;
-            } 
+            }
         } @else if $color == $mBlue {
             &.mBlue {
                 background: $color;
@@ -24,7 +24,7 @@
             &.lTan {
                 background: $color;
             }
-        } 
+        }
     }
 }
 
@@ -34,7 +34,7 @@
         @if $color == $mBlue {
             &#id0 {
                 fill: $color;
-            } 
+            }
         } @else if $color == $mGreen {
             &#id1 {
                 fill: $color;
@@ -49,7 +49,7 @@
             }
         } @else if $color == $dGreen {
             fill: $color;
-        } 
+        }
     }
 }
 
@@ -58,7 +58,7 @@
         @if $color == $mBlue {
             &#link0 {
                 stroke: $color;
-            } 
+            }
         } @else if $color == $mGreen {
             &#link1 {
                 stroke: $color;
@@ -71,6 +71,6 @@
             &#link3 {
                 stroke: $color;
             }
-        }  
+        }
     }
 }

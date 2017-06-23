@@ -5,17 +5,19 @@ import PropTypes from 'prop-types';
 import { sankey, sankeyLinkHorizontal } from 'd3-sankey';
 
 export default class Graph extends Component {
-   static PropTypes : {
-      graphData: Proptypes.shape
-   }
 
    constructor() {
       super();
 
       this.state = {
          graphContainerWidth: 500,
+         graphContainerHeight: 600,
          hoveredNode: null,
-         resizeTime: 200
+         resizeTime: 200,
+         linkStrokeWidth: '2',
+         linkStrokeDasharray: "2,2",
+         rectRx: "5",
+         rectRy: "5"
       }
    }
 
@@ -64,7 +66,7 @@ export default class Graph extends Component {
    }
 
    _getNodeTextElement(node) {
-      const leftNode = node.x0 < 400 / 2;
+      const leftNode = node.x0 < this.state.graphContainerWidth / 2;
 
       const xPos = leftNode ? 16 : -20;
       const yPos = (node.y1 - node.y0) / 2;
@@ -86,7 +88,7 @@ export default class Graph extends Component {
       return sankey()
          .nodeWidth(10)
          .nodePadding(10)
-         .extent([[0,0], [this.state.graphContainerWidth, 598]])
+         .extent([[0,0], [this.state.graphContainerWidth, this.state.graphContainerHeight - 2]])
          .nodes(this.props.graphData.nodes)
          .links(this.props.graphData.links);
    }
@@ -97,13 +99,13 @@ export default class Graph extends Component {
       const nodes = sankeyGraph().nodes;
       const links = sankeyGraph().links;
       const linkPath = sankeyLinkHorizontal();
-      const nodeTextElement = this._getNodeTextElement;
+      const nodeTextElement = this._getNodeTextElement.bind(this);
 
 
       return (
          <div id="sankey" ref='sankeyContainer'>
 
-            <svg width={this.state.graphContainerWidth} height="600">
+            <svg width={this.state.graphContainerWidth} height={this.state.graphContainerHeight}>
                <g className="graphLinks">
                   {
                      links.map((link, index) => (
@@ -112,8 +114,8 @@ export default class Graph extends Component {
                            id={`link${link.source.node}`}
                            className={this._getLinkHoverClass(link)}
                            d={ linkPath(link) }
-                           strokeWidth="2"
-                           strokeDasharray="2,2"
+                           strokeWidth={this.state.linkStrokeWidth}
+                           strokeDasharray={this.state.linkStrokeDasharray}
                         />
                      ))
                   }
@@ -130,8 +132,8 @@ export default class Graph extends Component {
                               id={`id${index}`}
                               height={node.y1 - node.y0}
                               width={node.x1 - node.x0}
-                              rx="5"
-                              ry="5"
+                              rx={this.state.rectRx}
+                              ry={this.state.rectRy}
                               onMouseEnter={(e) => this._handleNodeEnter(e, node)}
                               onMouseLeave={(e) => this._handleNodeLeave(e)}
                            />
@@ -147,4 +149,8 @@ export default class Graph extends Component {
          </div>
       )
    }
+}
+
+Graph.propTypes = {
+   graphData: PropTypes.shape()
 }

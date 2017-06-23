@@ -6,9 +6,6 @@ import ListItem from './components/ListItem';
 import FooterItem from './components/FooterItem';
 
 export default class App extends Component {
-   static PropTypes : {
-      data: PropTypes.shape
-   }
 
    constructor() {
       super();
@@ -98,6 +95,12 @@ export default class App extends Component {
                })
             }
 
+            <div className="container download">
+               <a href="../media/angelicahartlindh_cv.pdf" target="_blank">
+                  <p>Download Print Copy &gt;</p>
+               </a>
+            </div>
+
             <footer>
                 {
                    this.props.data.footer.map(item => (
@@ -112,4 +115,8 @@ export default class App extends Component {
          </div>
     );
   }
+}
+
+App.propTypes = {
+   data: PropTypes.shape()
 }

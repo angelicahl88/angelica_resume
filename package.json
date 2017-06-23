@@ -4,8 +4,9 @@
   "description": "My resume",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config webpack.config.js"
+    "start": "webpack-dev-server --config webpack.config.js && open http://localhost:3000",
+    "prebuild": "rimraf dist && mkdir dist",
+    "build": "env NODE_ENV=production webpack --config webpack.config.js --progress --profile --colors"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,8 @@
     "babel-core": "^6.25.0",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.2",
+    "html-webpack-plugin": "^2.28.0",
+    "rimraf": "^2.6.1",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
   },
